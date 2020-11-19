@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+export DEB_HOST_MULTIARCH = $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+export DEB_LDFLAGS_MAINT_APPEND = -fPIC
+export OUT_DIR = $(CURDIR)/debian/out
+
+ufdt_apply_overlay: debian/ufdt_apply_overlay.mk
+	dh_auto_build --buildsystem=makefile -- -f $<
+
+%:
+	dh $@
+
+override_dh_auto_build: ufdt_apply_overlay
+
+override_dh_auto_clean:
+	rm -rf $(OUTDIR)

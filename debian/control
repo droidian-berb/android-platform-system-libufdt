@@ -1,0 +1,23 @@
+Source: android-platform-system-libufdt
+Section: devel
+Priority: optional
+Maintainer: Eugenio Paolantonio (g7) <me@medesimo.eu>
+Build-Depends: debhelper (>=13~),
+               dpkg-dev,
+               libfdt-dev,
+               dh-exec,
+Standards-Version: 4.2.1
+Homepage: https://android.googlesource.com/platform/system/libufdt
+Vcs-Git: https://github.com/hybris-mobian/android-platform-system-libufdt.git
+Vcs-Browser: https://github.com/hybris-mobian/android-platform-system-libufdt.git
+
+Package: android-sdk-ufdt-tests
+Architecture: i386 amd64 armhf arm64
+Section: utils
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Description: Android ufdt tests binaries
+ This package contains packaged tests for Android platform's
+ libufdt.
+ .
+ Currently the only binary shipped is ufdt_apply_overlay.
