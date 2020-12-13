@@ -3,9 +3,12 @@ Section: devel
 Priority: optional
 Maintainer: Eugenio Paolantonio (g7) <me@medesimo.eu>
 Build-Depends: debhelper (>=13~),
+               dh-python,
+               python-all-dev (>= 2.7),
                dpkg-dev,
                libfdt-dev,
                dh-exec,
+X-Python-Version: >= 2.7
 Standards-Version: 4.2.1
 Homepage: https://android.googlesource.com/platform/system/libufdt
 Vcs-Git: https://github.com/hybris-mobian/android-platform-system-libufdt.git
@@ -21,3 +24,13 @@ Description: Android ufdt tests binaries
  libufdt.
  .
  Currently the only binary shipped is ufdt_apply_overlay.
+
+Package: mkdtboimg
+Architecture: all
+Section: utils
+Depends: ${shlibs:Depends},
+         ${python:Depends},
+         python2 (>= 2.7)
+Description: Tool for packing multiple DTB/DTBO files into a single image
+ This package contains mkdtboimg, a tool for packing multiple
+ DTB/DTBO files into a single image.
